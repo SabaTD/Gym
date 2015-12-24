@@ -5,7 +5,9 @@
 try{
 	$conn = new PDO('mysql:host=127.0.0.1; dbname=sqllab' , "root", ""); //ჰოსტი, ბაზის სახელი, ლოგინი, პაროლი;
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ჩაშენებული ფუნქცია რომელსაც შეუძლია შეცდომის სხვადასხვა ტიპის დაფიქსირება;
-
+	mysql:host -> localhost, 
+	dbname->sqllab;
+	
 	//$title="shekitxvis satauri";
 	//$correct_answer=2;
 
