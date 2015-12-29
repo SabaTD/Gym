@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +13,16 @@
 
 <body cz-shortcut-listen="true">
 	<div class="container">
-		<p></p>
+		<form action="auth.php" method="POST" class="form-singin">
 
-		<form action="outh.php" method="POST" class="form-singin">
+			<?php if(isset($S_SESSION['message']) && $_SESSION['message'] == 'error') :?>
+				<div class="alert alert-warning">
+					იმეილი ან პაროლი არასწორია!
+				</div>
+			<?php
+			$S_SESSION['message'] = '';
+			endif; ?>
+
 			<h2 class="form-singin-heading"> Please sing in </h2>
 			<label for="inputEmail" class="sr-only">Email adress</label>
 			<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email adress" required/>

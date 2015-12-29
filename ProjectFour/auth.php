@@ -12,14 +12,25 @@ require_once('db.php');
 if(isset($_POST['email']) && isset($_POST['password']) ){
 
 	try{
-		$sql = "SELECT COUNT(*) AS total FROM users WHERE email = :email AND password = :password";
+		$sql = "SELECT id, username, email FROM users WHERE email = :email AND password = :password";
 		$stmt = $conn->prepare($sql);
-		$stml->execute(array(
+		$stmt->execute(array(
 			':email' => $_POST['email'],
 			':password' => sha1($_POST['password'])
 		));
 		$user = $stmt -> fetchALL(PDO::FETCH_ASSOC);
-		print_r($user);
+		
+		if($user){
+			$_SESSION['is_logged'] = 1;
+			$_SESSION['email'] = $user['email'];
+			$_SESSION['username'] = $user['username'];
+			header('Location: index.php');
+ 		}
+
+		else{
+			$_SESSION['message'] = 'error';
+			header('Location: login.php');
+		}
 	}
 
 	catch(PDOException $e){
