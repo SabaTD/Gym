@@ -14,9 +14,10 @@
 	<?php 
 	
  		$conn = mysqli_connect("localhost", "root", "", "mydb"); //რადგან აქ გიწერია ის ზედა აღარ უნდა, პირდაპირ აქ ჩაწერე
- 		$sql = "SELECT `fname`, `lname`, `mail` FROM `myguests`"; // ` სიმბოლო  გამოიყენე როცა  SQL ბრძანებაში იყენებ თეიბლის სახელს, თეიბლის  ველებს, 
+ 		$sql = "SELECT * FROM `myguests`"; // ` სიმბოლო  გამოიყენე როცა  SQL ბრძანებაში იყენებ თეიბლის სახელს, თეიბლის  ველებს, 
  		$result = mysqli_query($conn, $sql);
-
+ 		
+ 		//შეგიძლია პირდაპირ ასე დაწერო ->  $result= mysqli_query($conn, "select * FROM `myguests`");  
 		while($row = mysqli_fetch_assoc($result))
 		{
  			echo "FirstName:" . $row["fname"]. "LastName:" . $row["lname"]. "Email:". $row["mail"]. "<br>";
