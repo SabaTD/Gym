@@ -1,8 +1,8 @@
 <?php
 	if(isset($_POST['submit'])){
-		$servername = "loclahost";
-		$username = "username";
-		$password = "password";
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
 		$dbname = "mydb";
 
 		$conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -10,7 +10,7 @@
 			die("Connection failed: ". mysqli_connect_error());
 		}
 
-		$sql = "INSERT INTO MyGuests(firstname, lastname, email) VALUES ($_POST[fname], $_POST[lname], $_POST[mail])";
+		$sql = "INSERT INTO `MyGuests` (`firstname`, `lastname`, `email`) VALUES ('$_POST["fname"]', '$_POST["lname"]', '$_POST["mail"]')";
 
 		if(mysqli_query($conn, $sql)) {
 			echo "New record created successfully";
