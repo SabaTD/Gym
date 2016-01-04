@@ -9,6 +9,6 @@
 	$sql = "INSERT INTO `myguests` (`firstname`, `lastname`, `email`) VALUES ('$firstName', '$lastName', '$email')";
 
 	mysqli_query($conn, $sql);
-	mysql_close($conn);
+	mysqli_close($conn);
 	
 ?>
