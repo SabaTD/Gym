@@ -12,24 +12,16 @@
 	</form>
 
 	<?php 
-		$servername = "localhost";
- 		$username = "root";
- 		$password = "";
- 		$dbname = "mydb";
-
- 		$conn = mysqli_connect("localhost", "root", "", "mydb");
- 		$sql = "SELECT fname, lname, mail FROM myguests";
+	
+ 		$conn = mysqli_connect("localhost", "root", "", "mydb"); //რადგან აქ გიწერია ის ზედა აღარ უნდა, პირდაპირ აქ ჩაწერე
+ 		$sql = "SELECT `fname`, `lname`, `mail` FROM `myguests`"; // ` სიმბოლო  გამოიყენე როცა  SQL ბრძანებაში იყენებ თეიბლის სახელს, თეიბლის  ველებს, 
  		$result = mysqli_query($conn, $sql);
 
- 		if(mysqli_num_rows($result) > 0) {
- 			while($row = mysqli_fetch_assoc($result)){
- 				echo "FirstName:" . $row["fname"]. "LastName:" . $row["lname"]. "Email:". $row["mail"]. "<br>";
- 			}
+		while($row = mysqli_fetch_assoc($result))
+		{
+ 			echo "FirstName:" . $row["fname"]. "LastName:" . $row["lname"]. "Email:". $row["mail"]. "<br>";
  		}
- 		else{
- 			echo "0 results";
- 		}
-
+ 	
  		mysqli_close($conn);
 	?>
 </body>
