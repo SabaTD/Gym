@@ -18,7 +18,7 @@
  		$result = mysqli_query($conn, $sql);
  		
  		//შეგიძლია პირდაპირ ასე დაწერო ->  $result= mysqli_query($conn, "select * FROM `myguests`");  
-		while($row = mysqli_fetch_assoc($result))
+		while($row = mysqli_fetch_array($result))
 		{
  			echo "FirstName:" . $row["fname"]. "LastName:" . $row["lname"]. "Email:". $row["mail"]. "<br>";
  		}
