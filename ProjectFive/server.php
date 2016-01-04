@@ -9,8 +9,12 @@
 		if(!$conn){
 			die("Connection failed: ". mysqli_connect_error());
 		}
+		
+		$firstName = $_POST["fname"];
+		$lastName = $_POST["lastName"];
+		$email = $_POST["email"];
 
-		$sql = "INSERT INTO `MyGuests` (`firstname`, `lastname`, `email`) VALUES ('$_POST["fname"]', '$_POST["lname"]', '$_POST["mail"]')";
+		$sql = "INSERT INTO `MyGuests` (`firstname`, `lastname`, `email`) VALUES ('$firstName', '$lastName', '$email')";
 
 		if(mysqli_query($conn, $sql)) {
 			echo "New record created successfully";
