@@ -7,8 +7,8 @@
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 	
 	$firstName = $_POST["fname"];
-	$lastName = $_POST["lastName"];
-	$email = $_POST["email"];
+	$lastName = $_POST["lname"];
+	$email = $_POST["mail"];
 
 	$sql = "INSERT INTO `MyGuests` (`firstname`, `lastname`, `email`) VALUES ('$firstName', '$lastName', '$email')";
 
