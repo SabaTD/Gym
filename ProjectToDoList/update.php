@@ -16,7 +16,7 @@
  	$agwera = $_POST["agwera"];
  	$tarigi = $_POST["tarigi"];
 
-	$sql = "UPDATE mylist SET Title='$satauri', Description = '$agwera', Date = '$tarigi' WHERE Title='deme'";
+	$sql = "UPDATE mylist SET Title='$satauri', Description = '$agwera', Date = '$tarigi' where id='$id'";
 
 	if (mysqli_query($conn, $sql)) {
 	    echo "Record updated successfully";

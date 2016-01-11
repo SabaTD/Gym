@@ -9,8 +9,9 @@
  	$satauri = $_POST["satauri"];
  	$agwera = $_POST["agwera"];
  	$tarigi = $_POST["tarigi"];
+ 	$id = $_GET['id'];
   
- 	$sql = "INSERT INTO `mylist` (`Title`, `Description`, `Date`) VALUES ('$satauri', '$agwera', '$tarigi')";
+ 	$sql = "INSERT INTO `mylist` (`Title`, `Description`, `Date`) VALUES ('$satauri', '$agwera', '2015-6-6')";
   
  
  	mysqli_query($conn, $sql);
