@@ -19,12 +19,8 @@
    
     $shedegi_array=mysql_fetch_array($shedegi);
     $ragaca1=$shedegi_array['Title'];
-    echo  "<input type='text' class='form-control' name='satauri' value=\"$ragaca1\">";
-   
     $ragaca2=$shedegi_array['Description'];
-    echo  "<input type='text' class='form-control' name='satauri' value=\"$ragaca2\">";
-  	$ragaca3=$shedegi_array['Date'];
-    echo  "<input type='text' class='form-control' name='satauri' value=\"$ragaca3\">";
+    $ragaca3=$shedegi_array['Date'];
 	//$sql = "SELECT mylist SET Title='$satauri', Description = '$agwera', Date = '$tarigi' where id='$id'";
 
 
@@ -46,11 +42,17 @@
 	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<form class="form-group" action="server.php" method="POST">
-		Title:<input type="text" class="form-control" name="satauri"> </br>
-		Description:<textarea class="form-control" rows="5" name="agwera"></textarea></br>
-		Adding Date:<input type="text" id="tarigi" class="form-control" name="tarigi" readonly></br>
-</form>
+<form class="form-group" action="update.php" method="post">
+
+		Title:<input type="text" class="form-control" name="satauri" value="<?php echo $ragaca1; ?>"></br>
+		Description:<textarea class="form-control" rows="5" name="agwera"><?php echo $ragaca1; ?></textarea></br>
+		<!-- Adding Date:<input type="text" id="tarigi" class="form-control" name="tarigi" value=" <?php echo $ragaca3 ?>"  readonly></br> -->
+		<input type="text" value="<?php echo $id ?>" name="id" readonly/>
+		<input type="submit"  class="btn btn-primary" value="Update" name="submit">
+
+</form> 
+
+
 
 </body>
 </html>

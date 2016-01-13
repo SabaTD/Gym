@@ -6,17 +6,20 @@
   
  	$conn = mysqli_connect("localhost", "root", "", "mydatabase");
  	
- 	$satauri = $_POST["satauri"];
- 	$agwera = $_POST["agwera"];
- 	$tarigi = $_POST["tarigi"];
- 	$id = $_GET['id'];
+ 	if(isset($_POST["satauri"])) $satauri = $_POST["satauri"];
+ 	if(isset($_POST["agwera"])) $agwera = $_POST["agwera"];
+ 	$message = "chanaceris gaketeba ver moxerxda!";
+ 	$tarigi = date("Y.m.d");
+	
+	$chacera = "INSERT INTO `mylist` (`Title`, `Description`, `Date`) VALUES ('$satauri', '$agwera', '$tarigi')";
   
- 	$sql = "INSERT INTO `mylist` (`Title`, `Description`, `Date`) VALUES ('$satauri', '$agwera', '2015-6-6')";
-  
- 
- 	mysqli_query($conn, $sql);
+ 	if ($chacera) {
+ 		$message = "chanaceri carmatebit gaketda!";
+ 	}
+
+ 	mysqli_query($conn, $chacera);
  	mysqli_close($conn);
- 	header("location: form.php");
+ 	header("location: form.php?msg=$message");
  	
 
   ?>

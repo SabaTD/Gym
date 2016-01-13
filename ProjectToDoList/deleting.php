@@ -10,7 +10,8 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-	$id = $_POST['id'];
+	$id = $_GET['id'];
+	echo $id;
 	$sql = "DELETE FROM mylist WHERE id='$id'";
 
 	if (mysqli_query($conn, $sql)) {
@@ -20,5 +21,6 @@
 	}
 
 	mysqli_close($conn);
+	//header("location: form.php");
 
 ?>

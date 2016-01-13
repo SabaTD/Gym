@@ -24,22 +24,22 @@
 	</script>
 </head>
 <body>
-	
+
 	<form class="form-group" action="server.php" method="POST">
 		Title:<input type="text" class="form-control" name="satauri"></br>
 		Description:<textarea class="form-control" rows="5" name="agwera"></textarea></br>
-		Adding Date:<input type="text" id="tarigi" class="form-control" name="tarigi" readonly></br>
+		<!--Adding Date:<input type="text" id="tarigi" class="form-control" name="tarigi" readonly></br>-->
 		<input type="submit"  class="btn btn-primary" name="submit">
 	</form>
 
 
 	<!-- <form class="form-group" action="deleting.php" method="POST">
 		<input type="submit" class="btn btn-primary" value="Delete" name="submit">
-	</form> !-->
+	</form> -->
 
-	<form class="form-group" action="update.php" method="POST">
+	<!-- <form class="form-group" action="update.php" method="POST">
 		<input type="submit"  class="btn btn-primary" value="Update" name="submit">
-	</form>
+	</form> -->
 
 	<?php 
 		
@@ -52,11 +52,14 @@
 		{
 		   
 			$id=$row["id"];
-		   echo "<a href=\"updating.php?id=$id\">";
+		    echo "<a href=\"updating.php?id=$id\">";
  			echo "<br>" ."Title:" . $row["Title"]. "   ".  "Description:" . " ". 
  			$row["Description"]. "Adding Date:". $row["Date"] ."<br>".$row["id"] ;
- 		   echo "</a>";
- 		   echo "<input type='submit' class='btn btn-primary' value='Delete' name='submit'>";
+ 		    echo "</a>";
+ 		    echo "<form action=\"deleting.php?id=$id\">";
+ 		    	echo "<input type='submit' class='btn btn-primary' value='Delete' name='submit'>";
+ 		    echo "</form>";	
+ 		  
  		}
  	
  		mysqli_close($conn);
