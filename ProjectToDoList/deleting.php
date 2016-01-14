@@ -21,6 +21,6 @@
 	}
 
 	mysqli_close($conn);
-	//header("location: form.php");
+	header("location: form.php");
 
 ?>

@@ -45,9 +45,9 @@
 <form class="form-group" action="update.php" method="post">
 
 		Title:<input type="text" class="form-control" name="satauri" value="<?php echo $ragaca1; ?>"></br>
-		Description:<textarea class="form-control" rows="5" name="agwera"><?php echo $ragaca1; ?></textarea></br>
+		Description:<textarea class="form-control" rows="5" name="agwera"><?php echo $ragaca2; ?></textarea></br>
 		<!-- Adding Date:<input type="text" id="tarigi" class="form-control" name="tarigi" value=" <?php echo $ragaca3 ?>"  readonly></br> -->
-		<input type="text" value="<?php echo $id ?>" name="id" readonly/>
+		<input type="text" value="<?php echo $id ?>" name="id" readonly />
 		<input type="submit"  class="btn btn-primary" value="Update" name="submit">
 
 </form> 

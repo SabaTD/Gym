@@ -24,20 +24,21 @@
 	</script>
 </head>
 <body>
-
+	<h2 id="first"> To Do List</h2>
 	<form class="form-group" action="server.php" method="POST">
 		Title:<input type="text" class="form-control" name="satauri"></br>
-		Description:<textarea class="form-control" rows="5" name="agwera"></textarea></br>
+		Description:<textarea class="form-control" rows="7" name="agwera"></textarea></br>
 		<!--Adding Date:<input type="text" id="tarigi" class="form-control" name="tarigi" readonly></br>-->
 		<input type="submit"  class="btn btn-primary" name="submit">
 	</form>
+	<br><br>
 
 
 	<!-- <form class="form-group" action="deleting.php" method="POST">
 		<input type="submit" class="btn btn-primary" value="Delete" name="submit">
 	</form> -->
 
-	<!-- <form class="form-group" action="update.php" method="POST">
+	<!--  <form class="form-group" action="update.php" method="POST">
 		<input type="submit"  class="btn btn-primary" value="Update" name="submit">
 	</form> -->
 
@@ -52,15 +53,36 @@
 		{
 		   
 			$id=$row["id"];
-		    echo "<a href=\"updating.php?id=$id\">";
- 			echo "<br>" ."Title:" . $row["Title"]. "   ".  "Description:" . " ". 
- 			$row["Description"]. "Adding Date:". $row["Date"] ."<br>".$row["id"] ;
- 		    echo "</a>";
- 		    echo "<form action=\"deleting.php?id=$id\">";
- 		    	echo "<input type='submit' class='btn btn-primary' value='Delete' name='submit'>";
- 		    echo "</form>";	
- 		  
+			echo "<div id='div1'>";
+
+		    	echo "<div id='div2'>"; 
+
+				    echo "<h3 id='title1'>".'Title:' . $row['Title']. "</h3>";
+				    echo "<h4 id='date1'>" ."Adding Date:". $row["Date"]."</h4>" ."</h3>" ."<br>";
+		 			//echo "Adding Date:". $row["Date"] ."<br>"."<br>"."<br>";
+		 			echo "<br>";
+		 			echo "<h4 id='description1'>"."Description:". "</h4>" ."<br>" ."<p id='p1'>". $row["Description"] ."</p>";
+
+
+		 			//echo "<br>".$row["id"];
+
+				    //echo "<br>" ."Title:" . $row["Title"]. " " .
+		 			//"Adding Date:". $row["Date"] ."<br>".
+		 			//"Description:" . " ". $row["Description"] .
+		 			//"<br>".$row["id"];
+
+		 			//echo "</div>";
+ 		    
+		 			echo "</br>";
+		 			echo "<div id='div3'>"; 
+			 			echo "<a href=\"deleting.php?id=$id\">Delete &nbsp;&nbsp;</a>";
+			 		    echo "<a href=\"updating.php?id=$id\">Update </a>";
+		 		    echo "</div>";
+	 		    echo "</div>";
+ 		    echo "</div>";
  		}
+ 		echo "</br>";
+ 		echo "</br>";
  	
  		mysqli_close($conn);
  		
