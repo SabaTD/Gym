@@ -1,9 +1,5 @@
 <?php
-	$servername = "localhost";
- 	$username = "root";
- 	$password = "";
- 	$dbname = "mydatabase";
-  
+	
  	$conn = mysqli_connect("localhost", "root", "", "mydatabase");
 
 	if (!$conn) {

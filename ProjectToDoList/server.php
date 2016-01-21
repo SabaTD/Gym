@@ -6,18 +6,20 @@
   
  	$conn = mysqli_connect("localhost", "root", "", "mydatabase");
  	
- 	if(isset($_POST["satauri"])) $satauri = $_POST["satauri"];
- 	if(isset($_POST["agwera"])) $agwera = $_POST["agwera"];
- 	$message = "chanaceris gaketeba ver moxerxda!";
- 	$tarigi = date("Y.m.d");
+ 	if(isset($_POST["title"])) $title = $_POST["title"];
+ 	if(isset($_POST["description"])) $description = $_POST["description"];
+ 	$message = "Unable to create a note!";
+ 	//$date = date("Y.m.d");
+	$date = date("Y-m-d h:i:sa");
+
 	
-	$chacera = "INSERT INTO `mylist` (`Title`, `Description`, `Date`) VALUES ('$satauri', '$agwera', '$tarigi')";
+	$insert = "INSERT INTO `mylist` (`Title`, `Description`, `Date`) VALUES ('$title', '$description', '$date')";
   
- 	if ($chacera) {
- 		$message = "chanaceri carmatebit gaketda!";
+ 	if ($insert) {
+ 		$message = "Note was succesfully created!";
  	}
 
- 	mysqli_query($conn, $chacera);
+ 	mysqli_query($conn, $insert);
  	mysqli_close($conn);
  	header("location: form.php?msg=$message");
  	
