@@ -2,17 +2,19 @@
 	
  	$conn = mysqli_connect("localhost", "root", "", "mydatabase");
 
-	if (!$conn)
+	if (!$conn) {
 	    die("Connection failed: " . mysqli_connect_error());
+	}
 
 	$id = $_GET['id'];
-	
+	echo $id;
 	$sql = "DELETE FROM mylist WHERE id='$id'";
 
-	if (mysqli_query($conn, $sql))
+	if (mysqli_query($conn, $sql)) {
 	    echo "Record deleted successfully";
-	else
+	} else {
 	    echo "Error deleting record: " . mysqli_error($conn);
+	}
 
 	mysqli_close($conn);
 	header("location: form.php");

@@ -21,7 +21,7 @@
 
  	mysqli_query($conn, $insert);
  	mysqli_close($conn);
- 	header("location: form.php?msg=$message");
+ 	header("location: footerform.php?msg=$message");
  	
 
   ?>

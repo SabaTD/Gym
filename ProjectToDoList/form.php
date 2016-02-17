@@ -8,25 +8,31 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 
-		<script type="text/javascript">
-		function myfunc()
-		{
-			var d= new Date();
-			var a = d.getDate();
-			var b = d.getMonth()+1;
-			var c = d.getFullYear();
-			var x = d.getHours();
-			var y = d.getMinutes();
-			var z = d.getSeconds();
-			v = a+"/" +b+"/"+ c+ " " +x+":"+y+":"+z;
-			document.getElementById("tarigi").value = v;//new Date;	
+	<script type="text/javascript">
+	 	function get_text(){
+			var xmlhttp;
+
+			if (window.XMLHttpRequest){
+			  xmlhttp=new XMLHttpRequest();
+			}
+
+			else{
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlhttp.onreadystatechange=function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+			    	document.getElementById("div1").innerHTML=xmlhttp.responseText;
+		        }
+			}
+			xmlhttp.open("POST","form.php",true);
+			xmlhttp.send();
 		}
-			setInterval(myfunc, 1000);
+	</script>
+
 		
-		</script>
-
-
-
+	
 	</head>
 
 	<body>
@@ -52,8 +58,8 @@
 			while($row = mysql_fetch_array($result))
 			{
 				$id = $row["id"];
-				echo "<div id = 'div1'>";
-			    	echo "<div id = 'div2'>"; 
+				echo "<div class = 'div1'>";
+			    	echo "<div class = 'div2'>"; 
 
 					    echo "<h3 id = 'title1'>".'Title:' . $row['Title']. "</h3>";
 					    echo "<h4 id = 'date1'>" ."Adding Date:". $row["Date"]."</h4>" ."</h3>" ."<br>";
@@ -63,7 +69,7 @@
 			 			echo "</br>";
 			 			echo "<div id = 'div3'>"; 
 				 			echo "<a href = \"deleting.php?id=$id\" class = \"btn btn-primary\" >Delete </a>";
-				 		    echo "<a href = \"updating.php?id=$id\" class = \"btn btn-primary\" style='float:left; margin-right:10px; ' >Update </a>";
+				 		    echo "<a href = \"updating.php?id=$id\" class = \"btn btn-primary\" style='float:left; margin-right:10px;'  onclick=\"get_text(); return false;\" >Update </a>";
 			 		    echo "</div>";
 		 		    echo "</div>";
 	 		    echo "</div>";
