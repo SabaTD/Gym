@@ -19,7 +19,7 @@
 
 
 	//This code runs if the form has been submitted
-
+	/*
 	if (isset($_POST['submit'])) { 
 
 		// checks if the username is in use  
@@ -38,14 +38,14 @@
 		}   
 		
 		//  this makes sure both passwords entered match 
-
+		*/
 		if ($_POST['password1'] != $_POST['password2']){ 
 			die('Your passwords did not match. ');  
 			header("location: form.php");
 			echo '<script type="text/javascript">alert("hello!");</script>';
 		}
 		header("location: form.php");
-	}
+	//}
 
 	
 	$insert = "INSERT INTO `signup` (`Username`, `Name`, `Surname`, `Password1` , `Password2` , `Email` , `Gender` ,  `Personalid` , `Phonenumber` , `Birthdate` , `Registrationdate`)
